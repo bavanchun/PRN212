@@ -5,7 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Login Window PE118801"
+        Height="400"
+        Width= "700"
+        FontFamily= "Tahoma"
+        FontSize= "13"
+        Background= "#FFF2F184"
+        WindowStartupLocation= "CenterScreen"
+        Loaded="Window_Loaded"
+>
     <Grid>
 
     </Grid>
