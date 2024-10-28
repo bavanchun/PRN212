@@ -23,5 +23,15 @@ namespace WpfApp1.WPF
         {
             InitializeComponent();
         }
+
+       
+        private void OnLoginBtnClicked(object sender, EventArgs e)
+        {
+            MainWindow main = new MainWindow();
+            main.Show();
+
+            this.Close();
+        }
+
     }
 }

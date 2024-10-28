@@ -5,14 +5,44 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1.WPF"
         mc:Ignorable="d"
-        Title="LoginWindow" Height="450" Width="800">
+        Title="Login Bus" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen"
+        Background="DarkSeaGreen"
+        ResizeMode="NoResize"
+        >
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="10"/>
             <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="10"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="10"/>
         </Grid.RowDefinitions>
+
+
+        <!-- Title -->
+        <Label Content="Login" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40" FontWeight="Bold"/>
+
+        <!-- Username label and field -->
+        <Label Content="Username" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" FontSize="18" Margin="40,0,0,0"/>
+        <TextBox x:Name="UsernameBox" Grid.Row="3" Grid.Column="1" Width="686" Height="30" HorizontalAlignment="Center" Margin="0,46,0,20"/>
+
+        <!-- Password label and field -->
+        <Label Content="Password" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Left" FontSize="18" Margin="40,0,0,0"/>
+        <PasswordBox x:Name="PasswordBox" Grid.Row="5" Grid.Column="1" Width="690" Height="30" HorizontalAlignment="Center" Margin="0,46,0,20"/>
+
+        <!-- Login button -->
+        <Button x:Name="LoginButton" Click="OnLoginBtnClicked" Grid.Row="7" Grid.Column="1" Width="250" Content="Login" HorizontalAlignment="Center" Margin="0,17,0,16"
+                FontSize="18"/>
     </Grid>
+
 </Window>
