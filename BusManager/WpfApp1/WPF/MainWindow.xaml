@@ -5,16 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="Login Window PE118801"
-        Height="400"
-        Width= "700"
+        Title="Main window"
         FontFamily= "Tahoma"
         FontSize= "13"
         Background= "#FFF2F184"
+        WindowState = "Maximized"
         WindowStartupLocation= "CenterScreen"
-        Loaded="Window_Loaded"
+        Loaded="Window_Loaded" Height="792.8" Width="1536"
 >
-    <Grid>
-
+    <Grid Width="1536" Height="792.8">
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FF06B9F6"/>
+                <GradientStop Color="#FFE56868" Offset="1"/>
+                <GradientStop Color="#FF4E90A6" Offset="0.42"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <TextBlock Margin="0,113,0,0" TextWrapping="Wrap" Text="Bus Management" VerticalAlignment="Top" FontSize="72" HorizontalAlignment="Center"/>
+        <Button Content="Book route" HorizontalAlignment="Left" Margin="201,396,0,0" VerticalAlignment="Top" Height="155" Width="322" Click="BookRoute_Click" FontSize="24" Background="#FFEBBBBB"/>
+        <Button Content="Edit ticket" HorizontalAlignment="Center" Margin="0,396,0,0" VerticalAlignment="Top" Height="155" Width="322" Click="Button_Click_2" FontSize="24" Background="#FFEBBBBB"/>
+        <Button Content="My information" HorizontalAlignment="Left" Margin="1035,396,0,0" VerticalAlignment="Top" Height="155" Width="322" Click="SelfEdit_Click" FontSize="24" Background="#FFEBBBBB"/>
     </Grid>
 </Window>

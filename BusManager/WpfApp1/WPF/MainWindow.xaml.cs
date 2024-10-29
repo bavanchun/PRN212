@@ -8,6 +8,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WPF;
 using WpfApp1.Utils;
 
 namespace WpfApp1
@@ -24,6 +25,28 @@ namespace WpfApp1
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+        }
+
+        private void BookRoute_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void SelfEdit_Click(object sender, RoutedEventArgs e)
+        {
+            var selfEdit = new CustomerSelfManagement();
+
+            selfEdit.Show();
         }
     }
 }
