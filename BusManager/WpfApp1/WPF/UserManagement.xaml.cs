@@ -11,28 +11,18 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WpfApp1.DAL;
 
 namespace WpfApp1.WPF
 {
     /// <summary>
-    /// Interaction logic for LoginWindow.xaml
+    /// Interaction logic for UserManagement.xaml
     /// </summary>
-    public partial class LoginWindow : Window
+    public partial class UserManagement : Window
     {
-        public LoginWindow()
+        public UserManagement()
         {
             InitializeComponent();
-        }
-
-       
-        private void OnLoginBtnClicked(object sender, EventArgs e)
-        {
-            
-
-            MainWindow main = new MainWindow();
-            main.Show();
-
-            this.Close();
         }
 
     }

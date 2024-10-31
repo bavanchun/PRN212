@@ -12,6 +12,7 @@
         WindowState = "Maximized"
         WindowStartupLocation= "CenterScreen"
         Loaded="Window_Loaded" Height="792.8" Width="1536"
+        ResizeMode="NoResize"
 >
     <Grid Width="1536" Height="792.8">
         <Grid.Background>
