@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
-using WpfApp1.bos;
+using WpfApp1.BOs;
 using WpfApp1.Utils;
 
 namespace WpfApp1.DAL;

@@ -10,7 +10,6 @@
 
   <ItemGroup>
     <Folder Include="BOs\" />
-    <Folder Include="BLL\" />
   </ItemGroup>
 
   <ItemGroup>

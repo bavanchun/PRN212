@@ -10,6 +10,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WPF;
 using WpfApp1.Utils;
+using WpfApp1.WPF;
 
 namespace WpfApp1
 {
@@ -29,7 +30,8 @@ namespace WpfApp1
 
         private void BookRoute_Click(object sender, RoutedEventArgs e)
         {
-            
+            Booking booking = new Booking();
+            booking.ShowDialog();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
@@ -45,8 +47,7 @@ namespace WpfApp1
         private void SelfEdit_Click(object sender, RoutedEventArgs e)
         {
             var selfEdit = new CustomerSelfManagement();
-
-            selfEdit.Show();
+            selfEdit.ShowDialog();
         }
     }
 }
