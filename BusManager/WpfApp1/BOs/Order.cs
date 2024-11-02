@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace WpfApp1.bos;
+namespace WpfApp1.BOs;
 
 public partial class Order
 {

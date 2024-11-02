@@ -24,7 +24,7 @@
         </Grid.Background>
         <TextBlock Margin="0,113,0,0" TextWrapping="Wrap" Text="Bus Management" VerticalAlignment="Top" FontSize="72" HorizontalAlignment="Center"/>
         <Button Content="Book route" HorizontalAlignment="Left" Margin="201,396,0,0" VerticalAlignment="Top" Height="155" Width="322" Click="BookRoute_Click" FontSize="24" Background="#FFEBBBBB"/>
-        <Button Content="Edit ticket" HorizontalAlignment="Center" Margin="0,396,0,0" VerticalAlignment="Top" Height="155" Width="322" Click="Button_Click_2" FontSize="24" Background="#FFEBBBBB"/>
+        <Button Content="View ticket" HorizontalAlignment="Center" Margin="0,396,0,0" VerticalAlignment="Top" Height="155" Width="322" Click="Button_Click_2" FontSize="24" Background="#FFEBBBBB"/>
         <Button Content="My information" HorizontalAlignment="Left" Margin="1035,396,0,0" VerticalAlignment="Top" Height="155" Width="322" Click="SelfEdit_Click" FontSize="24" Background="#FFEBBBBB"/>
     </Grid>
 </Window>
