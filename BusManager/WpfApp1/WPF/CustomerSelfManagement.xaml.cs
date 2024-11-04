@@ -30,10 +30,15 @@ namespace WpfApp1.WPF
             this.user = user;
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        private void InitializeComponent()
         {
-            //LoadCustomer();
+            throw new NotImplementedException();
         }
+
+        //private void Window_Loaded(object sender, RoutedEventArgs e)
+        //{
+        //    //LoadCustomer();
+        //}
 
         //public void LoadCustomer()
         //{
@@ -86,19 +91,19 @@ namespace WpfApp1.WPF
         //    }
         //}
 
-        private void btnClose_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
+        //private void btnClose_Click(object sender, RoutedEventArgs e)
+        //{
+        //    //this.Close();
+        //}
 
-        private void txtCustomerID_TextChanged(object sender, TextChangedEventArgs e)
-        {
+        //private void txtCustomerID_TextChanged(object sender, TextChangedEventArgs e)
+        //{
 
-        }
+        //}
 
-        private void btnUpdate_Click(object sender, RoutedEventArgs e)
-        {
+        //private void btnUpdate_Click(object sender, RoutedEventArgs e)
+        //{
 
-        }
+        //}
     }
 }

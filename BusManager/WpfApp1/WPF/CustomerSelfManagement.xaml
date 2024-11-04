@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF"
         mc:Ignorable="d"
-        Loaded="Window_Loaded"
         WindowStartupLocation= "CenterScreen"
         WindowState = "Maximized"
         Title="Customer Self Management" Height="792.8" Width="1536">
     <Grid>
+        <!--Loaded="Window_Loaded"-->
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                 <GradientStop Color="#FF06B9F6"/>
@@ -63,8 +63,11 @@
         <Label x:Name="label5" Margin ="2,2,2,2" Content="Customer Birthday" Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="2"/>
         <DatePicker x:Name="dpCustomerBirthday" Margin ="4,4,4,4" Grid.Column="2" Grid.Row="6" Grid.ColumnSpan="2" />
 
+        <!--
+        
         <Button x:Name="btnUpdate" Content="Update" Grid.Column="3" HorizontalAlignment="Left" Margin="87,0,0,20" Grid.Row="8" Width="118" Background="#FF1B7140" Foreground="White" Grid.RowSpan="2" RenderTransformOrigin="0.37,0.2" Click="btnUpdate_Click"/>
         <Button x:Name="btnClose" Content="Close" Grid.Column="3" HorizontalAlignment="Left" Margin="371,0,0,20" Grid.Row="8" Grid.RowSpan="2" Width="120" Background="#FFEF8F18" Foreground="White" Click="btnClose_Click"/>
+        -->
 
     </Grid>
 

@@ -21,5 +21,15 @@ namespace WpfApp1.BLL
         {
             _repo.Add(users);
         }
+
+        public void UpdateUser(User users)
+        {
+            _repo.Update(users);
+        }
+
+        public void DeleteUser(User users)
+        {
+            _repo.Delete(users);
+        }
     }
 }

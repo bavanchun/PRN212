@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using WpfApp1.BLL;
-using WpfApp1.BOs;
+using WpfApp1.Models;
 
 namespace WpfApp1.WPF
 {
@@ -24,6 +24,8 @@ namespace WpfApp1.WPF
         private UserService _service = new();
         private RoleService _roleService = new();
         private UserTypeService _userTypeService = new();
+
+        public User EditedUser { get; set; } = null;
         public CreateUpdateUser()
         {
             InitializeComponent();
@@ -32,6 +34,7 @@ namespace WpfApp1.WPF
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
             User user = new User();
+            
             user.Username = UsernameTextBox.Text;
             user.Password = PasswordBox.Password; // Fix: Use Password property instead of Text
             user.Name = NameTextBox.Text;
@@ -48,6 +51,14 @@ namespace WpfApp1.WPF
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             FillComboBoxes();
+        }
+
+        private void FillElements(User users)
+        {
+            if (users == null)
+            {
+                return;
+            }
         }
 
         private void FillComboBoxes()
