@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WpfApp1.Models;
 
 namespace WpfApp1.WPF
 {
@@ -19,6 +20,7 @@ namespace WpfApp1.WPF
     /// </summary>
     public partial class LoginWindow : Window
     {
+
         public LoginWindow()
         {
             InitializeComponent();
@@ -30,7 +32,7 @@ namespace WpfApp1.WPF
         {
             
 
-            MainWindow main = new MainWindow();
+            MainWindow main = new MainWindow(new User());
             main.Show();
 
             this.Close();

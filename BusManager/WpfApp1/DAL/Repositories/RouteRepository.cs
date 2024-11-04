@@ -5,22 +5,21 @@ using System.Text;
 using System.Threading.Tasks;
 using WpfApp1.DAL;
 using WpfApp1.Models;
-using WpfApp1.DAL.Repositories;
 
 namespace WpfApp1.BLL
 {
-    class RouteService
+    class RouteRepository
     {
-        private RouteRepository routeDAO;
+        private RouteRepository routeRepository;
 
-        public RouteService(BusManagementSystemContext _context)
+        public RouteRepository(BusManagementSystemContext _context)
         {
-            routeDAO = new RouteRepository(_context);
+            routeRepository = new RouteRepository(_context);
         }
 
         public List<Route> GetRoutes()
         {
-            return routeDAO.GetRoutes();
+            return routeRepository.GetRoutes();
         }
 
         public List<Route> GetRoutesGoThroughStation(int from, int to)
@@ -28,7 +27,7 @@ namespace WpfApp1.BLL
             var routes = new List<Route>();
 
             routes.AddRange(
-                routeDAO.GetRoutes()
+                routeRepository.GetRoutes()
                 .Where(r => r.Stations.Any(s => s.StationId == from) && r.Stations.Any(s => s.StationId == to))
             );
 

@@ -40,7 +40,7 @@ namespace WpfApp1.Migrations
                     b.ToTable("GoThrough", (string)null);
                 });
 
-            modelBuilder.Entity("WpfApp1.BOs.Bus", b =>
+            modelBuilder.Entity("WpfApp1.Models.Bus", b =>
                 {
                     b.Property<int>("BusId")
                         .ValueGeneratedOnAdd()
@@ -79,7 +79,7 @@ namespace WpfApp1.Migrations
                     b.ToTable("Bus", (string)null);
                 });
 
-            modelBuilder.Entity("WpfApp1.BOs.Order", b =>
+            modelBuilder.Entity("WpfApp1.Models.Order", b =>
                 {
                     b.Property<int>("OrderId")
                         .ValueGeneratedOnAdd()
@@ -106,7 +106,7 @@ namespace WpfApp1.Migrations
                     b.ToTable("Order", (string)null);
                 });
 
-            modelBuilder.Entity("WpfApp1.BOs.Role", b =>
+            modelBuilder.Entity("WpfApp1.Models.Role", b =>
                 {
                     b.Property<int>("RoleId")
                         .ValueGeneratedOnAdd()
@@ -126,7 +126,7 @@ namespace WpfApp1.Migrations
                     b.ToTable("Role", (string)null);
                 });
 
-            modelBuilder.Entity("WpfApp1.BOs.Route", b =>
+            modelBuilder.Entity("WpfApp1.Models.Route", b =>
                 {
                     b.Property<int>("RouteId")
                         .ValueGeneratedOnAdd()
@@ -146,7 +146,7 @@ namespace WpfApp1.Migrations
                     b.ToTable("Route", (string)null);
                 });
 
-            modelBuilder.Entity("WpfApp1.BOs.Station", b =>
+            modelBuilder.Entity("WpfApp1.Models.Station", b =>
                 {
                     b.Property<int>("StationId")
                         .ValueGeneratedOnAdd()
@@ -166,7 +166,7 @@ namespace WpfApp1.Migrations
                     b.ToTable("Station", (string)null);
                 });
 
-            modelBuilder.Entity("WpfApp1.BOs.Ticket", b =>
+            modelBuilder.Entity("WpfApp1.Models.Ticket", b =>
                 {
                     b.Property<int>("TicketId")
                         .ValueGeneratedOnAdd()
@@ -204,7 +204,7 @@ namespace WpfApp1.Migrations
                     b.ToTable("Ticket", (string)null);
                 });
 
-            modelBuilder.Entity("WpfApp1.BOs.User", b =>
+            modelBuilder.Entity("WpfApp1.Models.User", b =>
                 {
                     b.Property<int>("UserId")
                         .ValueGeneratedOnAdd()
@@ -248,7 +248,7 @@ namespace WpfApp1.Migrations
                     b.ToTable("User", (string)null);
                 });
 
-            modelBuilder.Entity("WpfApp1.BOs.UserType", b =>
+            modelBuilder.Entity("WpfApp1.Models.UserType", b =>
                 {
                     b.Property<int>("UserTypeId")
                         .ValueGeneratedOnAdd()
@@ -273,22 +273,22 @@ namespace WpfApp1.Migrations
 
             modelBuilder.Entity("GoThrough", b =>
                 {
-                    b.HasOne("WpfApp1.BOs.Route", null)
+                    b.HasOne("WpfApp1.Models.Route", null)
                         .WithMany()
                         .HasForeignKey("RouteId")
                         .IsRequired()
                         .HasConstraintName("FK__GoThrough__Route__47DBAE45");
 
-                    b.HasOne("WpfApp1.BOs.Station", null)
+                    b.HasOne("WpfApp1.Models.Station", null)
                         .WithMany()
                         .HasForeignKey("StationId")
                         .IsRequired()
                         .HasConstraintName("FK__GoThrough__Stati__48CFD27E");
                 });
 
-            modelBuilder.Entity("WpfApp1.BOs.Bus", b =>
+            modelBuilder.Entity("WpfApp1.Models.Bus", b =>
                 {
-                    b.HasOne("WpfApp1.BOs.Route", "Route")
+                    b.HasOne("WpfApp1.Models.Route", "Route")
                         .WithMany("Buses")
                         .HasForeignKey("RouteId")
                         .IsRequired()
@@ -297,9 +297,9 @@ namespace WpfApp1.Migrations
                     b.Navigation("Route");
                 });
 
-            modelBuilder.Entity("WpfApp1.BOs.Order", b =>
+            modelBuilder.Entity("WpfApp1.Models.Order", b =>
                 {
-                    b.HasOne("WpfApp1.BOs.User", "User")
+                    b.HasOne("WpfApp1.Models.User", "User")
                         .WithMany("Orders")
                         .HasForeignKey("UserId")
                         .HasConstraintName("FK__Order__UserID__4BAC3F29");
@@ -307,14 +307,14 @@ namespace WpfApp1.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("WpfApp1.BOs.Ticket", b =>
+            modelBuilder.Entity("WpfApp1.Models.Ticket", b =>
                 {
-                    b.HasOne("WpfApp1.BOs.Order", "Order")
+                    b.HasOne("WpfApp1.Models.Order", "Order")
                         .WithMany("Tickets")
                         .HasForeignKey("OrderId")
                         .HasConstraintName("FK__Ticket__OrderID__4F7CD00D");
 
-                    b.HasOne("WpfApp1.BOs.Route", "Route")
+                    b.HasOne("WpfApp1.Models.Route", "Route")
                         .WithMany("Tickets")
                         .HasForeignKey("RouteId")
                         .HasConstraintName("FK__Ticket__RouteID__4E88ABD4");
@@ -324,14 +324,14 @@ namespace WpfApp1.Migrations
                     b.Navigation("Route");
                 });
 
-            modelBuilder.Entity("WpfApp1.BOs.User", b =>
+            modelBuilder.Entity("WpfApp1.Models.User", b =>
                 {
-                    b.HasOne("WpfApp1.BOs.Role", "Role")
+                    b.HasOne("WpfApp1.Models.Role", "Role")
                         .WithMany("Users")
                         .HasForeignKey("RoleId")
                         .HasConstraintName("FK__User__RoleID__3C69FB99");
 
-                    b.HasOne("WpfApp1.BOs.UserType", "UserType")
+                    b.HasOne("WpfApp1.Models.UserType", "UserType")
                         .WithMany("Users")
                         .HasForeignKey("UserTypeId")
                         .HasConstraintName("FK__User__UserTypeID__3D5E1FD2");
@@ -341,29 +341,29 @@ namespace WpfApp1.Migrations
                     b.Navigation("UserType");
                 });
 
-            modelBuilder.Entity("WpfApp1.BOs.Order", b =>
+            modelBuilder.Entity("WpfApp1.Models.Order", b =>
                 {
                     b.Navigation("Tickets");
                 });
 
-            modelBuilder.Entity("WpfApp1.BOs.Role", b =>
+            modelBuilder.Entity("WpfApp1.Models.Role", b =>
                 {
                     b.Navigation("Users");
                 });
 
-            modelBuilder.Entity("WpfApp1.BOs.Route", b =>
+            modelBuilder.Entity("WpfApp1.Models.Route", b =>
                 {
                     b.Navigation("Buses");
 
                     b.Navigation("Tickets");
                 });
 
-            modelBuilder.Entity("WpfApp1.BOs.User", b =>
+            modelBuilder.Entity("WpfApp1.Models.User", b =>
                 {
                     b.Navigation("Orders");
                 });
 
-            modelBuilder.Entity("WpfApp1.BOs.UserType", b =>
+            modelBuilder.Entity("WpfApp1.Models.UserType", b =>
                 {
                     b.Navigation("Users");
                 });
