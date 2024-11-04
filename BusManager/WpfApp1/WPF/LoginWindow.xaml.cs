@@ -22,6 +22,7 @@ namespace WpfApp1.WPF
         public LoginWindow()
         {
             InitializeComponent();
+            
         }
 
        

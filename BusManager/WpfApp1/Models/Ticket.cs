@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace WpfApp1.BOs;
+namespace WpfApp1.Models;
 
 public partial class Ticket
 {
@@ -15,7 +15,7 @@ public partial class Ticket
 
     public decimal FinalPrice { get; set; }
 
-    public string Status { get; set; } = "Pending";
+    public string? Status { get; set; }
 
     public virtual Order? Order { get; set; }
 

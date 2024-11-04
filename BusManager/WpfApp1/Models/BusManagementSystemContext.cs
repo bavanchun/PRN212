@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Threading.Channels;
 using Microsoft.EntityFrameworkCore;
-using WpfApp1.BOs;
-using WpfApp1.Utils;
 
-namespace WpfApp1.DAL;
+namespace WpfApp1.Models;
 
 public partial class BusManagementSystemContext : DbContext
 {
@@ -36,8 +33,7 @@ public partial class BusManagementSystemContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer(Configuration.GetConfiguration()["ConnectionStrings:DefaultConnection"]);
-
+        => optionsBuilder.UseSqlServer("Server=THINKPADVAN\\VANCHUN;Database=BusManagementSystem;Uid=sa;Pwd=12345;TrustServerCertificate=true");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -137,6 +133,9 @@ public partial class BusManagementSystemContext : DbContext
             entity.Property(e => e.FinalPrice).HasColumnType("decimal(10, 2)");
             entity.Property(e => e.OrderId).HasColumnName("OrderID");
             entity.Property(e => e.RouteId).HasColumnName("RouteID");
+            entity.Property(e => e.Status)
+                .HasMaxLength(50)
+                .IsFixedLength();
 
             entity.HasOne(d => d.Order).WithMany(p => p.Tickets)
                 .HasForeignKey(d => d.OrderId)
@@ -145,9 +144,6 @@ public partial class BusManagementSystemContext : DbContext
             entity.HasOne(d => d.Route).WithMany(p => p.Tickets)
                 .HasForeignKey(d => d.RouteId)
                 .HasConstraintName("FK__Ticket__RouteID__4E88ABD4");
-            entity.Property(e => e.Status)
-    .HasMaxLength(50) 
-    .IsRequired(); 
         });
 
         modelBuilder.Entity<User>(entity =>

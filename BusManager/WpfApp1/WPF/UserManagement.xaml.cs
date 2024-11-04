@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WpfApp1.BLL;
 using WpfApp1.DAL;
 
 namespace WpfApp1.WPF
@@ -20,10 +21,31 @@ namespace WpfApp1.WPF
     /// </summary>
     public partial class UserManagement : Window
     {
+        private UserService _service = new();
+
         public UserManagement()
         {
             InitializeComponent();
         }
 
+        private void BtnHome(object sender, RoutedEventArgs e)
+        {
+            AdminMainWindow adminWindow = new AdminMainWindow();
+            adminWindow.Show();
+
+            this.Close();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            FillDataGrid();
+        }
+
+        private void FillDataGrid()
+        {
+            UsersDataGrid.ItemsSource = null;
+            UsersDataGrid.ItemsSource = _service.GetAllUser();
+            
+        }
     }
 }
