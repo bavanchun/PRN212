@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using WpfApp1.BLL;
-using WpfApp1.BOs;
+using WpfApp1.Models;
 using WpfApp1.DAL;
 
 namespace WpfApp1.WPF

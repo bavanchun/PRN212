@@ -1,5 +1,5 @@
 ﻿//using BBL;
-//using BOs;
+//using Models;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -10,20 +10,24 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfApp1.BLL;
+using WpfApp1.Models;
 
-namespace WPF
+namespace WpfApp1.WPF
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class CustomerSelfManagement : Window
     {
-        //private readonly ICustomerService customerService;
+        private User user;
+        private readonly UserService userService;
 
-        public CustomerSelfManagement()
+        public CustomerSelfManagement(User user)
         {
             InitializeComponent();
-            //customerService = new CustomerService();
+            userService = new UserService();
+            this.user = user;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)

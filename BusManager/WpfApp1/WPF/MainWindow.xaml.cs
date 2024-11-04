@@ -8,20 +8,21 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using WPF;
+using WpfApp1.Models;
 using WpfApp1.Utils;
-using WpfApp1.WPF;
 
-namespace WpfApp1
+namespace WpfApp1.WPF
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        private User user;
+        public MainWindow(User user)
         {
             InitializeComponent();
+            this.user = user;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -34,9 +35,10 @@ namespace WpfApp1
             booking.ShowDialog();
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void TicketView_Click(object sender, RoutedEventArgs e)
         {
-
+            CustomerViewTicket ticket = new CustomerViewTicket(user);
+            ticket.ShowDialog();
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
@@ -46,7 +48,7 @@ namespace WpfApp1
 
         private void SelfEdit_Click(object sender, RoutedEventArgs e)
         {
-            var selfEdit = new CustomerSelfManagement();
+            var selfEdit = new CustomerSelfManagement(user);
             selfEdit.ShowDialog();
         }
     }
