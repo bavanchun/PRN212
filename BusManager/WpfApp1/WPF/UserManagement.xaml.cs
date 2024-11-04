@@ -47,5 +47,16 @@ namespace WpfApp1.WPF
             UsersDataGrid.ItemsSource = _service.GetAllUser();
             
         }
+
+        
+        
+        private void CreateUser_Click(object sender, RoutedEventArgs e)
+        {
+            CreateUpdateUser createUpdateUser = new CreateUpdateUser();
+            createUpdateUser.ShowDialog();
+
+            FillDataGrid();
+            
+        }
     }
 }

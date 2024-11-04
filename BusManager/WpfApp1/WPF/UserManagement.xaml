@@ -21,10 +21,10 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="30"/>
+            <RowDefinition Height="40"/>
             <RowDefinition Height="30"/>
             <RowDefinition Height="5"/>
-            <RowDefinition Height="30"/>
+            <RowDefinition Height="20"/>
             <RowDefinition Height="5"/>
             <RowDefinition Height="30"/>
             <RowDefinition Height="40"/>
@@ -39,27 +39,24 @@
         <Grid Grid.Column="3" Grid.Row="7">
             <DataGrid x:Name="UsersDataGrid"  Margin="0,0,50,0" AutoGenerateColumns="False" ScrollViewer.VerticalScrollBarVisibility="Auto">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="ID" Width="30" Binding="{Binding UserID}"/>
-                    <DataGridTextColumn Header="Username" Width="80" Binding="{Binding Username}"/>
-                    <DataGridTextColumn Header="Name" Width="140" Binding="{Binding Name}"/>
-                    <DataGridTextColumn Header="Role" Width="100" Binding="{Binding RoleId}"/>
-                    <DataGridTextColumn Header="User Type" Width="100" Binding="{Binding UserTypeId}"/>
+                    <DataGridTextColumn Header="ID" Width="40" Binding="{Binding UserId}"/>
+                    <DataGridTextColumn Header="Username" Width="120" Binding="{Binding Username}"/>
+                    <DataGridTextColumn Header="Name" Width="170" Binding="{Binding Name}"/>
+                    <DataGridTextColumn Header="Role" Width="40" Binding="{Binding RoleId}"/>
+                    <DataGridTextColumn Header="Role Name" Width="100" Binding="{Binding Role.RoleName}"/>
+                    <DataGridTextColumn Header="User Type" Width="65" Binding="{Binding UserTypeId}"/>
+                    <DataGridTextColumn Header="Type Name" Width="100" Binding="{Binding UserType.TypeName}"/>
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>
 
-        <Button Content="Create" Grid.Column="3" Margin="71,25,525,25" Grid.Row="8" RenderTransformOrigin="0.5,0.5" >
-            <Button.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform ScaleY="-1"/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Button.RenderTransform>
-        </Button>
-        <Button Content="Delete"/>
-        <Button Content="Update"/>
+        <StackPanel Grid.Column="3" Grid.Row="8" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Height="60" Width="290">
+            <UniformGrid Rows="1" Columns="3" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Button x:Name="CreateUser" Content="Create User" Margin="10" Height="40" Background="#FF4CAF50" Foreground="White"  Click="CreateUser_Click"/>
+                <Button Content="Update User" Margin="10" Height="40" Background="#FF2196F3" Foreground="White"/>
+                <Button Content="Delete User" Margin="10" Height="40" Background="#FFF44336" Foreground="White"/>
+            </UniformGrid>
+        </StackPanel>
 
     </Grid>
 </Window>

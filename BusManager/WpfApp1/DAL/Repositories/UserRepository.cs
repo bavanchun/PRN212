@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,7 +15,14 @@ namespace WpfApp1.DAL.Repositories
         public List<User> GetUsers()
         {
             _context = new();
-            return _context.Users.ToList();
+            return _context.Users.Include("Role").Include("UserType").ToList();
+        }
+
+        public void Add(User users)
+        {
+            _context = new();
+            _context.Users.Add(users);
+            _context.SaveChanges();
         }
     }
 }

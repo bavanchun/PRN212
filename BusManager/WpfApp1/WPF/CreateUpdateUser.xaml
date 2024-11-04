@@ -1,0 +1,47 @@
+﻿<Window x:Class="WpfApp1.WPF.CreateUpdateUser"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1.WPF"
+        mc:Ignorable="d"
+        Title="CreateUpdateUser" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Loaded="Window_Loaded">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="391*"/>
+            <ColumnDefinition Width="409*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FF06B9F6"/>
+                <GradientStop Color="#FFE56868" Offset="1"/>
+                <GradientStop Color="#FF3B7C92" Offset="0.42"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Label Content="Create/Update User" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="290,10,0,0" FontSize="24" Grid.ColumnSpan="2"/>
+
+        <!-- Username -->
+        <Label Content="Username" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="69,80,0,0"/>
+        <TextBox x:Name="UsernameTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="492" Margin="170,89,0,0" Grid.ColumnSpan="2"/>
+
+        <!-- Password -->
+        <Label Content="Password" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="69,120,0,0"/>
+        <PasswordBox x:Name="PasswordBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="492" Margin="170,129,0,0" Grid.ColumnSpan="2"/>
+
+        <!-- Name -->
+        <Label Content="Name" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="69,160,0,0"/>
+        <TextBox x:Name="NameTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="492" Margin="170,169,0,0" Grid.ColumnSpan="2"/>
+
+        <!-- Role ID -->
+        <Label Content="Role" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="69,0,0,0"/>
+        <ComboBox x:Name="RoleComboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="492" Margin="170,209,0,0" Grid.ColumnSpan="2"/>
+
+
+        <!-- User Type ID -->
+        <Label Content="User Type" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="69,240,0,0"/>
+        <ComboBox x:Name="UserTypeComboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="492" Margin="170,249,0,0" Grid.ColumnSpan="2"/>
+
+        <Button x:Name="SaveButton" Content="Save User" HorizontalAlignment="Left" Margin="182,301,0,0" VerticalAlignment="Top" Height="50" Width="180" Background="#FF79D05E" FontWeight="Bold" FontSize="18" Click="SaveButton_Click"/>
+        <Button Content="Close" HorizontalAlignment="Left" Margin="91,301,0,0" VerticalAlignment="Top" Height="50" Width="180" Background="#FFDDDDDD" FontWeight="Bold" FontSize="18" Grid.Column="1"/>
+    </Grid>
+</Window>

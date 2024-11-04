@@ -16,5 +16,10 @@ namespace WpfApp1.BLL
         {
            return _repo.GetUsers();
         }
+
+        public void AddUser(User users)
+        {
+            _repo.Add(users);
+        }
     }
 }
