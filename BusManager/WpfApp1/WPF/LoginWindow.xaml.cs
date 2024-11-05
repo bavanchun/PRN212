@@ -50,9 +50,11 @@ namespace WpfApp1.WPF
 
             if (account.RoleId == 2)
             {
-                MainWindow mainWindow = new MainWindow(account);
+                CustomerMainWindow mainWindow = new CustomerMainWindow(account);
                 mainWindow.Show();
                 this.Hide();
+
+                return;
             }
             else if (account.RoleId == 3 || account.RoleId == 4)
             {
