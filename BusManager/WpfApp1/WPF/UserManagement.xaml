@@ -24,9 +24,7 @@
             <RowDefinition Height="40"/>
             <RowDefinition Height="30"/>
             <RowDefinition Height="5"/>
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="5"/>
-            <RowDefinition Height="30"/>
+            <RowDefinition Height="55"/>
             <RowDefinition Height="40"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="80"/>
@@ -35,8 +33,13 @@
         <Label Content="Bus system" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <Button Content="Home" Grid.Column="0" Grid.Row="1" Click="BtnHome"/>
 
+        <StackPanel Grid.Row="3" Grid.Column="3" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="120,14,0,0" Grid.RowSpan="3">
+            <TextBox x:Name="NameTextBox" Width="120" Margin="5" />
+            <ComboBox x:Name="RoleComboBox" Width="120" Margin="5" />
+            <Button x:Name="SearchButton" Content="Search User" Width="80" Margin="5" Click="SearchButton_Click"/>
+        </StackPanel>
 
-        <Grid Grid.Column="3" Grid.Row="7">
+        <Grid Grid.Column="3" Grid.Row="5">
             <DataGrid x:Name="UsersDataGrid"  Margin="0,0,50,0" AutoGenerateColumns="False" ScrollViewer.VerticalScrollBarVisibility="Auto">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="ID" Width="40" Binding="{Binding UserId}"/>

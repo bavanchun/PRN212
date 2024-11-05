@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using WpfApp1.Models;
 using WpfApp1.DAL.Repositories;
+using Microsoft.IdentityModel.Tokens;
 
 namespace WpfApp1.BLL
 {
@@ -14,7 +15,7 @@ namespace WpfApp1.BLL
 
         public List<User> GetAllUser()
         {
-           return _repo.GetUsers();
+            return _repo.GetUsers();
         }
 
         public void AddUser(User users)
@@ -30,6 +31,24 @@ namespace WpfApp1.BLL
         public void DeleteUser(User users)
         {
             _repo.Delete(users);
+        }
+
+        //search
+        public List<User> SearchUsersByNameAndRoleId(string? name = null, int? roleId = null)
+        {
+            List<User> result = _repo.GetUsers();
+            if(name.IsNullOrEmpty() && !roleId.HasValue)
+            {
+                return result;
+            } else if (!name.IsNullOrEmpty())
+            {
+                result = result.Where(u => u.Name.ToLower().Contains(name.ToLower())).ToList(); 
+            }
+            else if (roleId.HasValue)
+            {
+                result = result.Where(u => u.RoleId == roleId).ToList();
+            }
+            return result;
         }
     }
 }
