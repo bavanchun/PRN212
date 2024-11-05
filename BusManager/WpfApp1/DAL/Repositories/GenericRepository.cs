@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace WpfApp1.DAL.Repositories
 {
-    internal class GenericRepository<T> : IDisposable where T : class
+    public class GenericRepository<T> : IDisposable where T : class
     {
         public bool _disposed = false;
         public BusManagementSystemContext _context;

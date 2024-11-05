@@ -17,9 +17,7 @@ using WpfApp1.DAL;
 
 namespace WpfApp1.WPF
 {
-    /// <summary>
-    /// Interaction logic for Booking.xaml
-    /// </summary>
+
     public partial class Booking : Window
     {
         private readonly BusManagementSystemContext _context = new();

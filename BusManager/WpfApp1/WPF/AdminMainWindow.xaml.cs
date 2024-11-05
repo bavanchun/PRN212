@@ -37,7 +37,9 @@ namespace WpfApp1.WPF
         }
         private void BtnBusManagement(object sender, RoutedEventArgs e)
         {
-
+            BusManagement busManagement = new BusManagement(CurrentAccount);
+            busManagement.Show();
+            this.Close();
         }
         private void BtnRouteManagement(object sender, RoutedEventArgs e)
         {

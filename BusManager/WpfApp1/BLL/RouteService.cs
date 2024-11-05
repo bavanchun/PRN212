@@ -9,7 +9,7 @@ using WpfApp1.DAL.Repositories;
 
 namespace WpfApp1.BLL
 {
-    class RouteService
+    public class RouteService
     {
         private RouteRepository routeRepository;
 
