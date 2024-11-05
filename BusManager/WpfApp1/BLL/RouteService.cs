@@ -11,16 +11,16 @@ namespace WpfApp1.BLL
 {
     class RouteService
     {
-        private RouteRepository routeDAO;
+        private RouteRepository routeRepository;
 
         public RouteService(BusManagementSystemContext _context)
         {
-            routeDAO = new RouteRepository(_context);
+            routeRepository = new RouteRepository(_context);
         }
 
         public List<Route> GetRoutes()
         {
-            return routeDAO.GetRoutes();
+            return routeRepository.GetAll();
         }
 
         public List<Route> GetRoutesGoThroughStation(int from, int to)
@@ -28,7 +28,7 @@ namespace WpfApp1.BLL
             var routes = new List<Route>();
 
             routes.AddRange(
-                routeDAO.GetRoutes()
+                routeRepository.GetRoutes()
                 .Where(r => r.Stations.Any(s => s.StationId == from) && r.Stations.Any(s => s.StationId == to))
             );
 
