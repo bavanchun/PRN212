@@ -54,7 +54,7 @@
             <UniformGrid Rows="1" Columns="3" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <Button x:Name="CreateUser" Content="Create User" Margin="10" Height="40" Background="#FF4CAF50" Foreground="White"  Click="CreateUser_Click"/>
                 <Button x:Name="UpdateUser" Content="Update User" Margin="10" Height="40" Background="#FF2196F3" Foreground="White" Click="UpdateUser_Click"/>
-                <Button Content="Delete User" Margin="10" Height="40" Background="#FFF44336" Foreground="White"/>
+                <Button x:Name="DeleteUser" Content="Delete User" Margin="10" Height="40" Background="#FFF44336" Foreground="White" Click="DeleteUser_Click"/>
             </UniformGrid>
         </StackPanel>
 

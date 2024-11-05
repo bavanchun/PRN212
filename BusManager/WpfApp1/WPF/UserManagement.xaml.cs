@@ -46,23 +46,23 @@ namespace WpfApp1.WPF
         {
             UsersDataGrid.ItemsSource = null;
             UsersDataGrid.ItemsSource = _service.GetAllUser();
-            
+
         }
 
-        
-        
+
+
         private void CreateUser_Click(object sender, RoutedEventArgs e)
         {
             CreateUpdateUser createUpdateUser = new CreateUpdateUser();
             createUpdateUser.ShowDialog();
 
             FillDataGrid();
-            
+
         }
 
         private void UpdateUser_Click(object sender, RoutedEventArgs e)
         {
-           User? selected = UsersDataGrid.SelectedItem as User;
+            User? selected = UsersDataGrid.SelectedItem as User;
             if (selected == null)
             {
                 MessageBox.Show("Please select a/an row to update", "Select a row", MessageBoxButton.OK, MessageBoxImage.Exclamation);
@@ -73,6 +73,24 @@ namespace WpfApp1.WPF
             createUpdateUser.EditedUser = selected;
             createUpdateUser.ShowDialog();
 
+            FillDataGrid();
+        }
+
+        private void DeleteUser_Click(object sender, RoutedEventArgs e)
+        {
+            User? selected = UsersDataGrid.SelectedItem as User;
+            if (selected == null)
+            {
+                MessageBox.Show("Please select a/an row to update", "Select a row", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                return;
+            }
+
+            MessageBoxResult result = MessageBox.Show("Are you sure you want to delete this user?", "Confirm?", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.No)
+            {
+                return;
+            }
+            _service.DeleteUser(selected);
             FillDataGrid();
         }
     }
