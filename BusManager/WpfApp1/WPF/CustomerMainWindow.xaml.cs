@@ -31,7 +31,7 @@ namespace WpfApp1.WPF
 
         private void BookRoute_Click(object sender, RoutedEventArgs e)
         {
-            Booking booking = new Booking();
+            Booking booking = new Booking(user);
             booking.ShowDialog();
         }
 

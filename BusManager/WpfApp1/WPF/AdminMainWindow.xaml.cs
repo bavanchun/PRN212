@@ -26,7 +26,7 @@ namespace WpfApp1.WPF
         {
             InitializeComponent();
         }
-        
+
         private void BtnUserManagement(object sender, RoutedEventArgs e)
         {
             UserManagement userManagement = new UserManagement(CurrentAccount);
@@ -53,5 +53,6 @@ namespace WpfApp1.WPF
         {
 
         }
-    }
+
+           }
 }

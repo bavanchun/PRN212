@@ -45,6 +45,8 @@ namespace WpfApp1.WPF
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            HelloLabel.Content = $"Hello, {CurrentAccount.Name}";
+
             FillCommboBoxes();
             FillDataGrid();
 

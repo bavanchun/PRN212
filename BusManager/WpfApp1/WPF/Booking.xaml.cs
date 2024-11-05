@@ -14,22 +14,28 @@ using System.Windows.Shapes;
 using WpfApp1.BLL;
 using WpfApp1.Models;
 using WpfApp1.DAL;
+using WpfApp1.DAL.Repositories;
 
 namespace WpfApp1.WPF
 {
 
     public partial class Booking : Window
     {
-        private readonly BusManagementSystemContext _context = new();
+        private readonly User user;
+        BusManagementSystemContext _context;
         StationService stationService;
         RouteService routeService;
+        OrderService orderService;
 
 
-        public Booking()
+        public Booking(User user)
         {
             InitializeComponent();
+            _context = new BusManagementSystemContext();
             stationService = new StationService(_context);
             routeService = new RouteService(_context);
+            orderService = new OrderService(_context);
+            this.user = user;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -89,8 +95,35 @@ namespace WpfApp1.WPF
             DataGrid dg = (DataGrid)sender;
             Route route = (Route)dg.SelectedItem;
 
-            MessageBox.Show($"Book route {route.Name}?", "Booking", MessageBoxButton.YesNoCancel, MessageBoxImage.Information);
+            var result = MessageBox.Show($"Book route {route.Name}?", "Booking", MessageBoxButton.YesNo, MessageBoxImage.Information);
 
+            if (result == MessageBoxResult.No)
+            {
+                return;
+            }
+
+            // Use the 'tickets' list as needed
+            List<Ticket> tickets = new List<Ticket>();
+
+            Ticket ticket = new Ticket
+            {
+                RouteId = route.RouteId,
+                Date = DateTime.Now,
+                FinalPrice = 100000,
+                Status = "available",
+            };
+
+            tickets.Add(ticket);
+
+            Order order = new Order
+            {
+                OrderDate = DateTime.Now,
+                TotalPrice = tickets[0].FinalPrice,
+                UserId = user.UserId,
+                Tickets = tickets
+            };
+
+            orderService.AddOrder(order);
 
         }
     }

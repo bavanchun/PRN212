@@ -48,6 +48,8 @@ namespace WpfApp1.WPF
             }
             else
             {
+                tickets = tickets.OrderBy(t => t.Status == "available" ? 0 : 1).ToList();
+
                 Dispatcher.Invoke(() =>
                 {
                     dgTicket.ItemsSource = tickets;

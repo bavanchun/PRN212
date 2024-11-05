@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1.WPF"
         mc:Ignorable="d"
+        Loaded="Window_Loaded"
         Title="CustomerViewTicket" Height="450" Width="800">
     <Grid>
         <Grid.Background>
@@ -18,14 +19,11 @@
         <ScrollViewer HorizontalAlignment="Left" Height="300" Margin="10,100,0,0" VerticalAlignment="Top" Width="780">
             <DataGrid x:Name="dgTicket" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserResizeRows="False" CanUserSortColumns="False" IsReadOnly="True" SelectionMode="Single" SelectionUnit="FullRow" ItemsSource="{Binding}">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Ticket ID" Binding="{Binding TicketID}"/>
-                    <DataGridTextColumn Header="Route ID" Binding="{Binding RouteID}"/>
-                    <DataGridTextColumn Header="Bus ID" Binding="{Binding BusID}"/>
-                    <DataGridTextColumn Header="Customer ID" Binding="{Binding CustomerID}"/>
+                    <DataGridTextColumn Header="Ticket ID" Binding="{Binding TicketId}"/>
+                    <DataGridTextColumn Header="Route ID" Binding="{Binding RouteId}"/>
                     <DataGridTextColumn Header="Date" Binding="{Binding Date}"/>
-                    <DataGridTextColumn Header="Time" Binding="{Binding Time}"/>
-                    <DataGridTextColumn Header="Seat No" Binding="{Binding SeatNo}"/>
-                    <DataGridTextColumn Header="Price" Binding="{Binding Price}"/>
+                    <DataGridTextColumn Header="Price" Binding="{Binding FinalPrice}"/>
+                    <DataGridTextColumn Header="Status" Binding="{Binding Status}"/>
                 </DataGrid.Columns>
             </DataGrid>
         </ScrollViewer>

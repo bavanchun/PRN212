@@ -26,11 +26,11 @@ namespace WpfApp1.WPF
         public LoginWindow()
         {
             InitializeComponent();
-            
+
         }
 
-       
-        
+
+
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
             if (string.IsNullOrEmpty(UsernameBox.Text) || string.IsNullOrEmpty(PasswordBox.Password))
@@ -50,16 +50,22 @@ namespace WpfApp1.WPF
 
             if (account.RoleId == 2)
             {
-                MainWindow mainWindow = new MainWindow(account);
+                CustomerMainWindow mainWindow = new CustomerMainWindow(account);
                 mainWindow.Show();
                 this.Hide();
-            }
-            
-            AdminMainWindow adminWindow = new AdminMainWindow();
-            adminWindow.CurrentAccount = account;
-            adminWindow.Show();
 
-            this.Hide();
+                return;
+            }
+            else if (account.RoleId == 3 || account.RoleId == 4)
+            {
+
+                AdminMainWindow adminWindow = new AdminMainWindow();
+                adminWindow.CurrentAccount = account;
+                adminWindow.Show();
+
+                this.Hide();
+            }
+
         }
     }
 }

@@ -30,80 +30,48 @@ namespace WpfApp1.WPF
             this.user = user;
         }
 
-        //private void InitializeComponent()
-        //{
-        //    throw new NotImplementedException();
-        //}
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            LoadSelf();
+        }
 
-        //private void Window_Loaded(object sender, RoutedEventArgs e)
-        //{
-        //    //LoadCustomer();
-        //}
+        public void LoadSelf()
+        {
+            try
+            {
+                txtName.Text = user.Name;
+                txtUsername.Text = user.Username;
+                txtPassword.Password = user.Password;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error on load list of customers");
+            }
+        }
 
-        //public void LoadCustomer()
-        //{
-        //    try
-        //    {
-        //        Customer customer = customerService.GetCustomers()[0];
+        private void btnUpdate_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                user.Name = txtName.Text;
+                user.Username = txtUsername.Text;
+                user.Password = txtPassword.Password;
 
-        //        txtCustomerID.Text = customer.CustomerId.ToString();
-        //        txtCustomerFullName.Text = customer.CustomerFullName;
-        //        txtTelephone.Text = customer.Telephone;
-        //        txtEmailAddress.Text = customer.EmailAddress;
-        //        dpCustomerBirthday.SelectedDate = customer.CustomerBirthday.Value.ToDateTime(TimeOnly.MinValue);
-        //        txtPassword.Text = customer.Password;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message, "Error on load list of customers");
-        //    }
-        //}
+                userService.UpdateUser(user);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                LoadSelf();
+            }
+        }
 
-        //private void btnUpdate_Click(object sender, RoutedEventArgs e)
-        //{
-        //    try
-        //    {
-        //        if (txtCustomerID.Text.Length > 0)
-        //        {
-        //            Customer customer = customerService.GetCustomerById(Int32.Parse(txtCustomerID.Text));
-
-        //            customer.CustomerFullName = txtCustomerFullName.Text;
-        //            customer.Telephone = txtTelephone.Text;
-        //            customer.EmailAddress = txtEmailAddress.Text;
-        //            customer.CustomerBirthday = dpCustomerBirthday.SelectedDate.HasValue ? DateOnly.FromDateTime(dpCustomerBirthday.SelectedDate.Value) : null;
-        //            customer.CustomerStatus = 1;
-        //            customer.Password = txtPassword.Text;
-
-        //            customerService.UpdateCustomer(customer);
-        //        }
-        //        else
-        //        {
-        //            MessageBox.Show("You must select a Customer!");
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message);
-        //    }
-        //    finally
-        //    {
-        //        LoadCustomer();
-        //    }
-        //}
-
-        //private void btnClose_Click(object sender, RoutedEventArgs e)
-        //{
-        //    //this.Close();
-        //}
-
-        //private void txtCustomerID_TextChanged(object sender, TextChangedEventArgs e)
-        //{
-
-        //}
-
-        //private void btnUpdate_Click(object sender, RoutedEventArgs e)
-        //{
-
-        //}
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }
