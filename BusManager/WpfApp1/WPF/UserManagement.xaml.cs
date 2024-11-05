@@ -55,12 +55,7 @@ namespace WpfApp1.WPF
                 UpdateUser.Visibility = Visibility.Collapsed;
                 DeleteUser.Visibility = Visibility.Collapsed;
             }
-            else
-            {
-                // Handle the case where CurrentAccount is null
-                MessageBox.Show("CurrentAccount is not set.");
-            }
-
+            
         }
 
         private void FillCommboBoxes()
