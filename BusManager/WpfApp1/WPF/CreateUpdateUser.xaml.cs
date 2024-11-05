@@ -33,24 +33,55 @@ namespace WpfApp1.WPF
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-            User user = new User();
-            
-            user.Username = UsernameTextBox.Text;
-            user.Password = PasswordBox.Password; // Fix: Use Password property instead of Text
-            user.Name = NameTextBox.Text;
-            //user.RoleId = 2; // Fix: Convert string to int
-            //user.UserTypeId = 1; // Fix: Convert string to int
-            user.RoleId = (int)RoleComboBox.SelectedValue; // Fix: Cast SelectedValue to int
-            user.UserTypeId = (int)UserTypeComboBox.SelectedValue; // Fix: Cast SelectedValue to int
+            if (EditedUser == null)
+            {
+                // Tạo người dùng mới
+                User newUser = new User
+                {
+                    Username = UsernameTextBox.Text,
+                    Password = PasswordBox.Password,
+                    Name = NameTextBox.Text,
+                    RoleId = (int)RoleComboBox.SelectedValue,
+                    UserTypeId = (int)UserTypeComboBox.SelectedValue
+                };
 
-            _service.AddUser(user);
+                try
+                {
+                    _service.AddUser(newUser);
+                    MessageBox.Show("User added successfully.");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error: {ex.Message}");
+                }
+            }
+            else
+            {
+                // Cập nhật người dùng hiện tại
+                EditedUser.Password = PasswordBox.Password;
+                EditedUser.Name = NameTextBox.Text;
+                EditedUser.RoleId = (int)RoleComboBox.SelectedValue;
+                EditedUser.UserTypeId = (int)UserTypeComboBox.SelectedValue;
+
+                try
+                {
+                    _service.UpdateUser(EditedUser);
+                    MessageBox.Show("User updated successfully.");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error: {ex.Message}");
+                }
+            }
 
             this.Close();
         }
 
+
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             FillComboBoxes();
+            FillElements(EditedUser);
         }
 
         private void FillElements(User users)
@@ -59,6 +90,13 @@ namespace WpfApp1.WPF
             {
                 return;
             }
+
+            IDTextBox.Text = users.UserId.ToString();
+            UsernameTextBox.Text = users.Username;
+            PasswordBox.Password = users.Password;
+            NameTextBox.Text = users.Name;
+            RoleComboBox.SelectedValue = users.RoleId ?? 0; // Fix: Handle nullable int
+            UserTypeComboBox.SelectedValue = users.UserTypeId ?? 0; // Fix: Handle nullable int
         }
 
         private void FillComboBoxes()

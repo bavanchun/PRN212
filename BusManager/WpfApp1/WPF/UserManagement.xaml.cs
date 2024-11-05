@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using WpfApp1.BLL;
 using WpfApp1.DAL;
+using WpfApp1.Models;
 
 namespace WpfApp1.WPF
 {
@@ -57,6 +58,22 @@ namespace WpfApp1.WPF
 
             FillDataGrid();
             
+        }
+
+        private void UpdateUser_Click(object sender, RoutedEventArgs e)
+        {
+           User? selected = UsersDataGrid.SelectedItem as User;
+            if (selected == null)
+            {
+                MessageBox.Show("Please select a/an row to update", "Select a row", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                return;
+            }
+
+            CreateUpdateUser createUpdateUser = new();
+            createUpdateUser.EditedUser = selected;
+            createUpdateUser.ShowDialog();
+
+            FillDataGrid();
         }
     }
 }

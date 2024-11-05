@@ -30,10 +30,10 @@ namespace WpfApp1.WPF
             this.user = user;
         }
 
-        private void InitializeComponent()
-        {
-            throw new NotImplementedException();
-        }
+        //private void InitializeComponent()
+        //{
+        //    throw new NotImplementedException();
+        //}
 
         //private void Window_Loaded(object sender, RoutedEventArgs e)
         //{

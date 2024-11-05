@@ -53,7 +53,7 @@
         <StackPanel Grid.Column="3" Grid.Row="8" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Height="60" Width="290">
             <UniformGrid Rows="1" Columns="3" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <Button x:Name="CreateUser" Content="Create User" Margin="10" Height="40" Background="#FF4CAF50" Foreground="White"  Click="CreateUser_Click"/>
-                <Button Content="Update User" Margin="10" Height="40" Background="#FF2196F3" Foreground="White"/>
+                <Button x:Name="UpdateUser" Content="Update User" Margin="10" Height="40" Background="#FF2196F3" Foreground="White" Click="UpdateUser_Click"/>
                 <Button Content="Delete User" Margin="10" Height="40" Background="#FFF44336" Foreground="White"/>
             </UniformGrid>
         </StackPanel>

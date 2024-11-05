@@ -28,7 +28,22 @@ namespace WpfApp1.DAL.Repositories
         public void Update(User users)
         {
             _context = new();
-            _context.Users.Update(users);
+
+            var existingUser = _context.Users.FirstOrDefault(u => u.UserId == users.UserId);
+            if (existingUser != null)
+            {
+                if (_context.Users.Any(u => u.Username == users.Username && u.UserId != users.UserId))
+                {
+                    throw new Exception("Username already exists.");
+                }
+
+                existingUser.Password = users.Password;
+                existingUser.Name = users.Name;
+                existingUser.RoleId = users.RoleId;
+                existingUser.UserTypeId = users.UserTypeId;
+                existingUser.Username = users.Username; // Ensure this is updated correctly
+            }
+            _context.Users.Update(existingUser);
             _context.SaveChanges();
         }
 
