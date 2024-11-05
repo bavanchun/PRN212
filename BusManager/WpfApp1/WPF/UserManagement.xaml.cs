@@ -26,9 +26,13 @@ namespace WpfApp1.WPF
         private UserService _service = new();
         private RoleService _roleService = new();
 
-        public UserManagement()
+        public User CurrentAccount { get; set; }
+
+
+        public UserManagement(User currentAccount)
         {
             InitializeComponent();
+            CurrentAccount = currentAccount;
         }
 
         private void BtnHome(object sender, RoutedEventArgs e)
@@ -43,7 +47,20 @@ namespace WpfApp1.WPF
         {
             FillCommboBoxes();
             FillDataGrid();
-            
+
+            if (CurrentAccount != null && CurrentAccount.RoleId == 3)
+            {
+                // Hide the buttons
+                CreateUser.Visibility = Visibility.Collapsed;
+                UpdateUser.Visibility = Visibility.Collapsed;
+                DeleteUser.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                // Handle the case where CurrentAccount is null
+                MessageBox.Show("CurrentAccount is not set.");
+            }
+
         }
 
         private void FillCommboBoxes()

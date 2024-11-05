@@ -56,6 +56,7 @@ namespace WpfApp1.WPF
             }
             
             AdminMainWindow adminWindow = new AdminMainWindow();
+            adminWindow.CurrentAccount = account;
             adminWindow.Show();
 
             this.Hide();

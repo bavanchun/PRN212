@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WpfApp1.Models;
 
 namespace WpfApp1.WPF
 {
@@ -19,6 +20,8 @@ namespace WpfApp1.WPF
     /// </summary>
     public partial class AdminMainWindow : Window
     {
+        public User CurrentAccount { get; set; }
+
         public AdminMainWindow()
         {
             InitializeComponent();
@@ -26,7 +29,7 @@ namespace WpfApp1.WPF
         
         private void BtnUserManagement(object sender, RoutedEventArgs e)
         {
-            UserManagement userManagement = new UserManagement();
+            UserManagement userManagement = new UserManagement(CurrentAccount);
             userManagement.Show();
 
             this.Close();
