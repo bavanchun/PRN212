@@ -60,6 +60,8 @@
                 <Button x:Name="DeleteUser" Content="Delete User" Margin="10" Height="40" Background="#FFF44336" Foreground="White" Click="DeleteUser_Click"/>
             </UniformGrid>
         </StackPanel>
+        <Label x:Name="HelloLabel" Content="Hello, " Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="523,0,0,0"
+               FontStyle="Italic"/>
 
     </Grid>
 </Window>
