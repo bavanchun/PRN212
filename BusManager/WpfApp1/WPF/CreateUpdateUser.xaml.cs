@@ -24,11 +24,13 @@ namespace WpfApp1.WPF
         private UserService _service = new();
         private RoleService _roleService = new();
         private UserTypeService _userTypeService = new();
+        private bool _isDirty = false;
 
         public User EditedUser { get; set; } = null;
         public CreateUpdateUser()
         {
             InitializeComponent();
+            this.Closing += CreateUpdateUser_Closing;
         }
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
@@ -49,6 +51,7 @@ namespace WpfApp1.WPF
                 {
                     _service.AddUser(newUser);
                     MessageBox.Show("User added successfully.");
+                    _isDirty = false;
                 }
                 catch (Exception ex)
                 {
@@ -67,6 +70,7 @@ namespace WpfApp1.WPF
                 {
                     _service.UpdateUser(EditedUser);
                     MessageBox.Show("User updated successfully.");
+                    _isDirty = false;
                 }
                 catch (Exception ex)
                 {
@@ -82,6 +86,19 @@ namespace WpfApp1.WPF
         {
             FillComboBoxes();
             FillElements(EditedUser);
+            //fill label
+            if (EditedUser != null)
+            {
+                CreateUpdateWindowModeLabel.Content = "Update User Information";
+                IDTextBox.IsEnabled = false;
+                UsernameTextBox.IsEnabled = false;
+            }
+            else
+            {
+                CreateUpdateWindowModeLabel.Content = "Create User Information";
+                IDTextBox.IsEnabled = false;
+
+            }
         }
 
         private void FillElements(User users)
@@ -92,7 +109,9 @@ namespace WpfApp1.WPF
             }
 
             IDTextBox.Text = users.UserId.ToString();
+
             UsernameTextBox.Text = users.Username;
+
             PasswordBox.Password = users.Password;
             NameTextBox.Text = users.Name;
             RoleComboBox.SelectedValue = users.RoleId ?? 0; // Fix: Handle nullable int
@@ -101,15 +120,39 @@ namespace WpfApp1.WPF
 
         private void FillComboBoxes()
         {
-            
+
             RoleComboBox.ItemsSource = _roleService.GetAll();
             RoleComboBox.DisplayMemberPath = "RoleName";
             RoleComboBox.SelectedValuePath = "RoleId";
 
-            
+
             UserTypeComboBox.ItemsSource = _userTypeService.GetAll();
             UserTypeComboBox.DisplayMemberPath = "TypeName";
             UserTypeComboBox.SelectedValuePath = "UserTypeId";
+        }
+
+        private void CreateUpdateUser_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (_isDirty)
+            {
+                var result = MessageBox.Show("Information has not been saved, do you want to close?", "Confirm close",
+                    MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+                if (result == MessageBoxResult.No)
+                {
+                    e.Cancel = true; // Hủy việc đóng cửa sổ
+                }
+            }
+        }
+
+        private void OnDataChanged(object sender, RoutedEventArgs e)
+        {
+            _isDirty = true; // Đánh dấu khi có thay đổi dữ liệu
+        }
+
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

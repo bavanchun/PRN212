@@ -18,7 +18,7 @@
                 <GradientStop Color="#FF3B7C92" Offset="0.42"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <Label Content="Create/Update User" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="290,10,0,0" FontSize="24" Grid.ColumnSpan="2"/>
+        <Label x:Name="CreateUpdateWindowModeLabel" Content="Create/Update User" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="290,10,0,0" FontSize="24" Grid.ColumnSpan="2"/>
 
         <!-- ID -->
         <Label Content="ID" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="42,114,0,0"/>
@@ -26,26 +26,29 @@
 
         <!-- Username -->
         <Label Content="Username" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="42,154,0,0"/>
-        <TextBox x:Name="UsernameTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="492" Margin="155,162,0,0" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="UsernameTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="492" Margin="155,162,0,0" Grid.ColumnSpan="2" TextChanged="OnDataChanged"/>
 
         <!-- Password -->
         <Label Content="Password" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="42,194,0,0"/>
-        <PasswordBox x:Name="PasswordBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="492" Margin="155,202,0,0" Grid.ColumnSpan="2"/>
+        <PasswordBox x:Name="PasswordBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="492" Margin="155,202,0,0" Grid.ColumnSpan="2"
+                     PasswordChanged="OnDataChanged"/>
 
         <!-- Name -->
         <Label Content="Name" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="42,234,0,0"/>
-        <TextBox x:Name="NameTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="492" Margin="155,242,0,0" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="NameTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="492" Margin="155,242,0,0" Grid.ColumnSpan="2" TextChanged="OnDataChanged"/>
 
         <!-- Role ID -->
         <Label Content="Role" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="346,268,0,0"/>
-        <ComboBox x:Name="RoleComboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="139" Margin="10,278,0,0" Grid.Column="1"/>
+        <ComboBox x:Name="RoleComboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="139" Margin="10,278,0,0" Grid.Column="1"
+                  SelectionChanged="OnDataChanged"/>
 
 
         <!-- User Type ID -->
         <Label Content="User Type" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="42,268,0,0"/>
-        <ComboBox x:Name="UserTypeComboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="131" Margin="155,278,0,0"/>
+        <ComboBox x:Name="UserTypeComboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="131" Margin="155,278,0,0"
+                  SelectionChanged="OnDataChanged"/>
 
         <Button x:Name="SaveButton" Content="Save User" HorizontalAlignment="Left" Margin="182,346,0,0" VerticalAlignment="Top" Height="50" Width="180" Background="#FF79D05E" FontWeight="Bold" FontSize="18" Click="SaveButton_Click"/>
-        <Button Content="Close" HorizontalAlignment="Left" Margin="91,346,0,0" VerticalAlignment="Top" Height="50" Width="180" Background="#FFDDDDDD" FontWeight="Bold" FontSize="18" Grid.Column="1"/>
+        <Button x:Name="CloseButton" Content="Close" HorizontalAlignment="Left" Margin="91,346,0,0" VerticalAlignment="Top" Height="50" Width="180" Background="#FFDDDDDD" FontWeight="Bold" FontSize="18" Grid.Column="1" Click="CloseButton_Click"  />
     </Grid>
 </Window>
