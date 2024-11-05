@@ -12,6 +12,12 @@ namespace WpfApp1.DAL.Repositories
     {
         private BusManagementSystemContext _context;
 
+        public User? GetOne(string username, string password)
+        {
+            _context = new();
+            return _context.Users.FirstOrDefault(x => x.Username.ToLower() == username.ToLower() && x.Password == password);
+        }
+
         public List<User> GetUsers()
         {
             _context = new();
@@ -53,5 +59,7 @@ namespace WpfApp1.DAL.Repositories
             _context.Users.Remove(users);
             _context.SaveChanges();
         }
+
+        
     }
 }

@@ -13,6 +13,11 @@ namespace WpfApp1.BLL
     {
         private UserRepository _repo = new();
 
+        public User? Authenticate(string username, string password)
+        {
+            return _repo.GetOne(username, password);
+        }
+
         public List<User> GetAllUser()
         {
             return _repo.GetUsers();
