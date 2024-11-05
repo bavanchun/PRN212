@@ -1,37 +1,28 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WpfApp1.DAL;
+using WpfApp1.DAL.Repositories;
 using WpfApp1.Models;
 
 namespace WpfApp1.BLL
 {
-    class RouteRepository
+    class RouteRepository: GenericRepository<Route>
     {
-        private RouteRepository routeRepository;
 
-        public RouteRepository(BusManagementSystemContext _context)
+        public RouteRepository(BusManagementSystemContext _context): base(_context)
         {
-            routeRepository = new RouteRepository(_context);
         }
 
         public List<Route> GetRoutes()
         {
-            return routeRepository.GetRoutes();
-        }
-
-        public List<Route> GetRoutesGoThroughStation(int from, int to)
-        {
-            var routes = new List<Route>();
-
-            routes.AddRange(
-                routeRepository.GetRoutes()
-                .Where(r => r.Stations.Any(s => s.StationId == from) && r.Stations.Any(s => s.StationId == to))
-            );
-
-            return routes;
+            return _context.Routes
+                .Include(r => r.Stations)
+                .Include(r => r.Buses)
+                .ToList();
         }
     }
 }

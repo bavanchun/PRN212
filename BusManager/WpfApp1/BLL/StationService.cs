@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WpfApp1.DAL;
+using WpfApp1.DAL.Repositories;
 using WpfApp1.Models;
 
 namespace WpfApp1.BLL

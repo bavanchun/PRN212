@@ -6,7 +6,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WpfApp1.DAL
+namespace WpfApp1.DAL.Repositories
 {
     internal class GenericRepository<T> : IDisposable where T : class
     {
@@ -135,14 +135,14 @@ namespace WpfApp1.DAL
 
         protected virtual void Dispose(bool disposing)
         {
-            if (!this.disposed)
+            if (!disposed)
             {
                 if (disposing)
                 {
                     _context.Dispose();
                 }
             }
-            this.disposed = true;
+            disposed = true;
         }
 
         public void Dispose()
