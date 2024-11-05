@@ -111,17 +111,16 @@ namespace WpfApp1.WPF
         }
         private void SearchButton_Click(object sender, RoutedEventArgs e)
         {
-            // Retrieve the search criteria
-            string licensePlate = LicensePlateTextBox.Text?.Trim();
+            string busModel = NameTextBox.Text?.Trim();
             int? routeId = RouteComboBox.SelectedValue as int?;
 
             // Retrieve all buses first
             var buses = _busService.GetAllBuses();
 
-            // Filter by license plate if provided
-            if (!string.IsNullOrEmpty(licensePlate))
+            // Filter by model if provided
+            if (!string.IsNullOrEmpty(busModel))
             {
-                buses = buses.Where(b => b.LicensePlate.Contains(licensePlate, StringComparison.OrdinalIgnoreCase)).ToList();
+                buses = buses.Where(b => b.Model.Contains(busModel, StringComparison.OrdinalIgnoreCase)).ToList();
             }
 
             // Filter by route ID if selected
@@ -136,7 +135,7 @@ namespace WpfApp1.WPF
             // Display a message if no results are found
             if (!buses.Any())
             {
-                MessageBox.Show("No buses found with the given criteria.", "Search Result", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("No buses found with the given model.", "Search Result", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
 

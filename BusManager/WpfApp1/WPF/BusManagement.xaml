@@ -34,7 +34,7 @@
         <Button Content="Home" Grid.Column="0" Grid.Row="1" Click="BtnHome"/>
 
         <StackPanel Grid.Row="3" Grid.Column="3" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="120,14,0,0" Grid.RowSpan="3">
-            <TextBox x:Name="LicensePlateTextBox" Width="120" Margin="5" />
+            <TextBox x:Name="NameTextBox" Width="120" Margin="5" />
             <ComboBox x:Name="RouteComboBox" Width="120" Margin="5" />
             <Button x:Name="SearchButton" Content="Search Bus" Width="80" Margin="5" Click="SearchButton_Click"/>
         </StackPanel>
