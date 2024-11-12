@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Identity.Client.NativeInterop;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,9 +23,16 @@ namespace WpfApp1.WPF
     {
         public User CurrentAccount { get; set; }
 
-        public AdminMainWindow()
+        public AdminMainWindow(User account)
         {
             InitializeComponent();
+
+            CurrentAccount = account;
+
+            if (CurrentAccount.RoleId != 3)
+            {
+                
+            }
         }
 
         private void BtnUserManagement(object sender, RoutedEventArgs e)
@@ -47,12 +55,21 @@ namespace WpfApp1.WPF
         }
         private void BtnTicketManagemtn(object sender, RoutedEventArgs e)
         {
-
+            StaffTicketController staffTicketController = new StaffTicketController(CurrentAccount);
+            staffTicketController.Show();
+            this.Close();
         }
         private void BtnStationManagement(object sender, RoutedEventArgs e)
         {
 
         }
 
-           }
+        private void LogOut(object sender, RoutedEventArgs e)
+        {
+            LoginWindow loginWindow = new LoginWindow();
+            loginWindow.ShowDialog();
+
+            this.Close();
+        }
+    }
 }

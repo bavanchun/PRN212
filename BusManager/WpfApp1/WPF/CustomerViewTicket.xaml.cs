@@ -42,6 +42,16 @@ namespace WpfApp1.WPF
         {
             var tickets = ticketService.GetTicketsByCustomerId(user.UserId);
 
+            tickets.Select(tickets => new
+            {
+                tickets.TicketId,
+                tickets.OrderId,
+                tickets.Status,
+                tickets.FinalPrice,
+                // use  bus repo here (pass route id)
+                //Buses = string.Join(", ", tickets.Route),
+            });
+
             if (tickets == null)
             {
                 MessageBox.Show("Can't load Tickets", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -55,6 +65,14 @@ namespace WpfApp1.WPF
                     dgTicket.ItemsSource = tickets;
                 });
             }
+        }
+
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+            CustomerMainWindow customerMainWindow = new CustomerMainWindow(user);
+            customerMainWindow.ShowDialog();
+
+            this.Close();
         }
     }
 }

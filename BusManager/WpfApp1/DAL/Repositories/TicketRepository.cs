@@ -27,6 +27,7 @@ namespace WpfApp1.DAL.Repositories
             return _context.Tickets
                 .Include(t => t.Route)
                 .Include(t => t.Order)
+                .ThenInclude(o => o.User)
                 .FirstOrDefault(t => t.TicketId == id);
         }
 

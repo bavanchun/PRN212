@@ -4,6 +4,7 @@ using WpfApp1.BLL;
 using WpfApp1.Models;
 using WpfApp1.DAL;
 using WpfApp1.DAL.Repositories;
+using Microsoft.Identity.Client.NativeInterop;
 
 namespace WpfApp1.WPF
 {
@@ -31,7 +32,7 @@ namespace WpfApp1.WPF
 
         private void BtnHome(object sender, RoutedEventArgs e)
         {
-            AdminMainWindow adminWindow = new AdminMainWindow();
+            AdminMainWindow adminWindow = new AdminMainWindow(CurrentAccount);
             adminWindow.Show();
             this.Close();
         }

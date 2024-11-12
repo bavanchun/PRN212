@@ -71,6 +71,9 @@ namespace WpfApp1.WPF
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
+            CustomerMainWindow customerMainWindow = new CustomerMainWindow(user);
+            customerMainWindow.ShowDialog();
+
             this.Close();
         }
     }

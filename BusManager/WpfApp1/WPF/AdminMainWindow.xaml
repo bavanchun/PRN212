@@ -30,13 +30,14 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        
-        <Label Content="Bus system" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+        <Label Content="Bus system" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="241,10,0,0"/>
         <Button Content="User" Grid.Column="0" Grid.Row="1" Click="BtnUserManagement"/>
         <Button Content="Bus" Grid.Column="0" Grid.Row="3" Click="BtnBusManagement"/>
         <Button Content="Route" Grid.Column="2" Grid.Row="1" Click="BtnRouteManagement"/>
         <Button Content="Ticket" Grid.Column="2" Grid.Row="3" Click="BtnTicketManagemtn"/>
         <Button Content="Station" Grid.Column="0" Grid.Row="5" Click="BtnStationManagement"/>
+        <Button Content="Log out" Grid.Column="2" Grid.Row="5" Click="LogOut"/>
     </Grid>
 
 </Window>

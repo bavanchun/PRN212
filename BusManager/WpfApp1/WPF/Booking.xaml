@@ -25,5 +25,6 @@
         <Button Content="Search" HorizontalAlignment="Left" Margin="710,258,0,0" VerticalAlignment="Top" Height="39" Width="154" Click="Search_Click"/>
 
         <DataGrid x:Name="dgRoutes" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="220,342,124,172" SelectionChanged="dgRoutes_SelectionChanged"/>
+        <Button x:Name="btnClose" Content="Back" HorizontalAlignment="Left" Margin="50,42,0,688" Width="89" Background="#FF18B1EF" Foreground="White" Click="btnClose_Click"/>
     </Grid>
 </Window>

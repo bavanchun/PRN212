@@ -37,7 +37,7 @@ namespace WpfApp1.WPF
 
         private void BtnHome(object sender, RoutedEventArgs e)
         {
-            AdminMainWindow adminWindow = new AdminMainWindow();
+            AdminMainWindow adminWindow = new AdminMainWindow(CurrentAccount);
             adminWindow.Show();
 
             this.Close();

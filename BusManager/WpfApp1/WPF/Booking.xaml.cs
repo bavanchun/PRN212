@@ -126,5 +126,13 @@ namespace WpfApp1.WPF
             orderService.AddOrder(order);
 
         }
+
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+            CustomerMainWindow customerMainWindow = new CustomerMainWindow(user);
+            customerMainWindow.ShowDialog();
+
+            this.Close();
+        }
     }
 }

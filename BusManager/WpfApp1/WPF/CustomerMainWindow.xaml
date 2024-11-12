@@ -26,5 +26,7 @@
         <Button Content="Book route" HorizontalAlignment="Left" Margin="201,396,0,0" VerticalAlignment="Top" Height="155" Width="322" Click="BookRoute_Click" FontSize="24" Background="#FFEBBBBB"/>
         <Button Content="View ticket" HorizontalAlignment="Center" Margin="0,396,0,0" VerticalAlignment="Top" Height="155" Width="322" Click="TicketView_Click" FontSize="24" Background="#FFEBBBBB"/>
         <Button Content="My information" HorizontalAlignment="Left" Margin="1035,396,0,0" VerticalAlignment="Top" Height="155" Width="322" Click="SelfEdit_Click" FontSize="24" Background="#FFEBBBBB"/>
+        <Button x:Name="btnClose" Content="Log out" HorizontalAlignment="Left" Margin="1402,28,0,709" Width="89" Background="#FF18B1EF" Foreground="White" Click="btnClose_Click"/>
+
     </Grid>
 </Window>
