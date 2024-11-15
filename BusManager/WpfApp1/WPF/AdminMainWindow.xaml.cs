@@ -51,7 +51,9 @@ namespace WpfApp1.WPF
         }
         private void BtnRouteManagement(object sender, RoutedEventArgs e)
         {
-
+            RouteManagement routeManagement = new RouteManagement(CurrentAccount);
+            routeManagement.Show();
+            this.Close();
         }
         private void BtnTicketManagemtn(object sender, RoutedEventArgs e)
         {

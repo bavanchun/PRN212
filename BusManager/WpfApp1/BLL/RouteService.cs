@@ -20,7 +20,7 @@ namespace WpfApp1.BLL
 
         public List<Route> GetRoutes()
         {
-            return routeRepository.GetAll();
+            return routeRepository.GetRoutes();
         }
 
         public List<Route> GetRoutesGoThroughStation(int from, int to)
@@ -45,6 +45,16 @@ namespace WpfApp1.BLL
             );
 
             return routes;
+        }
+
+        public void AddRoute(Route route)
+        {
+            routeRepository.Create(route);
+        }
+
+        public void UpdateRoute(Route route)
+        {
+            routeRepository.Update(route);
         }
 
         public void DeleteRoute(Route route)

@@ -9,7 +9,7 @@ using WpfApp1.Models;
 
 namespace WpfApp1.BLL
 {
-    internal class StationService
+    public class StationService
     {
         private readonly StationRepository _stationRepository;
 
