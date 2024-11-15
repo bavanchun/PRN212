@@ -107,7 +107,7 @@ namespace WpfApp1.WPF
         private void FillComboBoxes()
         {
             RouteComboBox.ItemsSource = _routeService.GetRoutes();
-            RouteComboBox.DisplayMemberPath = "RouteName";
+            RouteComboBox.DisplayMemberPath = "Name";
             RouteComboBox.SelectedValuePath = "RouteId";
         }
 

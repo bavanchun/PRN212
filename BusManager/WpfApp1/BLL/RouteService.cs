@@ -34,5 +34,23 @@ namespace WpfApp1.BLL
 
             return routes;
         }
+
+        public List<Route> GetRoutesNotGoThroughStation(int from, int to)
+        {
+            var routes = new List<Route>();
+
+            routes.AddRange(
+                routeRepository.GetRoutes()
+                .Where(r => r.Stations.Any(s => s.StationId != from) && r.Stations.Any(s => s.StationId != to))
+            );
+
+            return routes;
+        }
+
+        public void DeleteRoute(Route route)
+        {
+            routeRepository.Remove(route);
+        }
+
     }
 }

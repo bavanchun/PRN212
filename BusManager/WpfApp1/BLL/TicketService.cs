@@ -6,9 +6,17 @@ using System.Threading.Tasks;
 using WpfApp1.DAL.Repositories;
 using WpfApp1.DAL;
 using WpfApp1.Models;
+using System.Windows.Documents;
 
 namespace WpfApp1.BLL
 {
+    class TicketView
+    {
+        public string Route { get; set; }
+        public string Status { get; set; }
+        public string Buses { get; set; }
+        public int Count { get; set; }
+    }
     class TicketService
     {
         private TicketRepository _ticketRepository;
@@ -28,9 +36,30 @@ namespace WpfApp1.BLL
             return _ticketRepository.GetTicketById(id);
         }
 
-        public List<Ticket> GetTicketsByCustomerId(int id)
+        public List<TicketView> GetTicketsByCustomerId(int id)
         {
-            return _ticketRepository.GetTicketsByCustomerId(id);
+            List<Ticket> tickets = _ticketRepository.GetTicketsByCustomerId(id);
+
+            if (tickets == null)
+            {
+                return null;
+            }
+
+            List<TicketView> data = new List<TicketView>();
+            var groups = tickets.GroupBy(ticket => new { route = ticket.RouteId, status = ticket.Status });
+
+            foreach (var group in groups)
+            {
+                data.Add(group.Select(ticket => new TicketView()
+                {
+                    Status = ticket.Status,
+                    Route = ticket.Route.Name,
+                    Buses = string.Join(" | ", ticket.Route.Buses.Select(b => b.LicensePlate)),
+                    Count = group.Count(),
+                }).OrderBy(t => t.Status == "available" ? 0 : 1).First());
+            }
+
+            return data;
         }
 
         public void AddTicket(Ticket ticket)

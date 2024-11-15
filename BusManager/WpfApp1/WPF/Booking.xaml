@@ -20,8 +20,8 @@
         <TextBlock Margin="0,41,0,0" TextWrapping="Wrap" Text="Bus Booking" VerticalAlignment="Top" FontSize="72" HorizontalAlignment="Center"/>
         <TextBlock HorizontalAlignment="Left" Margin="220,191,0,0" TextWrapping="Wrap" Text="From" VerticalAlignment="Top" FontSize="20" Foreground="White"/>
         <ComboBox x:Name="cboFrom" HorizontalAlignment="Left" Margin="301,191,0,0" VerticalAlignment="Top" Width="430" Height="30"/>
-        <TextBlock HorizontalAlignment="Left" Margin="854,193,0,0" TextWrapping="Wrap" Text="To" VerticalAlignment="Top" FontSize="20" Foreground="White"/>
-        <ComboBox x:Name="cboTo" HorizontalAlignment="Left" Margin="916,191,0,0" VerticalAlignment="Top" Width="426" Height="30"/>
+        <TextBlock HorizontalAlignment="Left" Margin="854,191,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Foreground="White"><Run Text="Through"/><LineBreak/><Run/></TextBlock>
+        <ComboBox x:Name="cboTo" HorizontalAlignment="Left" Margin="954,191,0,0" VerticalAlignment="Top" Width="426" Height="30"/>
         <Button Content="Search" HorizontalAlignment="Left" Margin="710,258,0,0" VerticalAlignment="Top" Height="39" Width="154" Click="Search_Click"/>
 
         <DataGrid x:Name="dgRoutes" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="220,342,124,172" SelectionChanged="dgRoutes_SelectionChanged"/>

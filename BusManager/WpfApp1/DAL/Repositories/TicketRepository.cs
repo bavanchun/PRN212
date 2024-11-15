@@ -35,8 +35,19 @@ namespace WpfApp1.DAL.Repositories
         {
             return _context.Tickets
                 .Include(t => t.Route)
+                .ThenInclude(r => r.Buses)
                 .Include(t => t.Order)
                 .Where(t => t.Order.UserId == id)
+                .ToList();
+        }
+
+        public List<Ticket> GetAvailableTicketsByCustomerId(int id)
+        {
+            return _context.Tickets
+                .Include(t => t.Route)
+                .ThenInclude(r => r.Buses)
+                .Include(t => t.Order)
+                .Where(t => t.Order.UserId == id && t.Status == "available")
                 .ToList();
         }
 

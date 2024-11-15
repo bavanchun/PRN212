@@ -45,7 +45,7 @@ namespace WpfApp1.WPF
 
         private async void LoadStations()
         {
-            var stations = await stationService.GetStationsAsync();
+            var stations = stationService.GetStations();
 
             if (stations == null)
             {

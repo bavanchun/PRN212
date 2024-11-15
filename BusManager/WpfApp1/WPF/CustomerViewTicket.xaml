@@ -17,15 +17,8 @@
         </Grid.Background>
         <TextBlock HorizontalAlignment="Center" Margin="0,24,0,0" TextWrapping="Wrap" Text="Ticket Details" VerticalAlignment="Top" FontSize="36" Foreground="White"/>
         <ScrollViewer HorizontalAlignment="Left" Height="300" Margin="10,100,0,0" VerticalAlignment="Top" Width="780">
-            <DataGrid x:Name="dgTicket" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserResizeRows="False" CanUserSortColumns="False" IsReadOnly="True" SelectionMode="Single" SelectionUnit="FullRow" ItemsSource="{Binding}">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="Ticket ID" Binding="{Binding TicketId}"/>
-                    <DataGridTextColumn Header="Route ID" Binding="{Binding RouteId}"/>
-                    <DataGridTextColumn Header="Date" Binding="{Binding Date}"/>
-                    <DataGridTextColumn Header="Price" Binding="{Binding FinalPrice}"/>
-                    <DataGridTextColumn Header="Status" Binding="{Binding Status}"/>
-                    <DataGridTextColumn Header="Buses" Binding="{Binding Buses}"/>
-                </DataGrid.Columns>
+            <DataGrid x:Name="dgTicket"  CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserResizeRows="False" CanUserSortColumns="False" IsReadOnly="True" SelectionMode="Single" SelectionUnit="FullRow" ItemsSource="{Binding}">
+               
             </DataGrid>
         </ScrollViewer>
         <Button x:Name="btnClose" Content="Back" HorizontalAlignment="Left" Margin="10,29,0,377" Width="46" Background="#FF18B1EF" Foreground="White" Click="btnClose_Click" RenderTransformOrigin="0.637,0.181"/>

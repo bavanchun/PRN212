@@ -11,21 +11,26 @@ namespace WpfApp1.BLL
 {
     internal class StationService
     {
-        private readonly GenericRepository<Station> _stationRepository;
+        private readonly StationRepository _stationRepository;
 
         public StationService(BusManagementSystemContext _context)
         {
-            _stationRepository = new GenericRepository<Station>(_context);
+            _stationRepository = new StationRepository(_context);
         }
 
-        public async Task<IEnumerable<Station>> GetStationsAsync()
+        public IEnumerable<Station> GetStations()
         {
-            return await _stationRepository.GetAllAsync();
+            return _stationRepository.GetStations();
         }
 
         public async Task<Station> GetStationAsync(int id)
         {
             return await _stationRepository.GetByIdAsync(id);
+        }
+
+        public List<Station> GetStationsNotHaveRoute(IEnumerable<int> routeIds)
+        {
+            return _stationRepository.GetStationsNotHaveRoute(routeIds);
         }
 
         public async Task AddStationAsync(Station station)

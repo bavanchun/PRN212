@@ -42,24 +42,12 @@ namespace WpfApp1.WPF
         {
             var tickets = ticketService.GetTicketsByCustomerId(user.UserId);
 
-            tickets.Select(tickets => new
-            {
-                tickets.TicketId,
-                tickets.OrderId,
-                tickets.Status,
-                tickets.FinalPrice,
-                // use  bus repo here (pass route id)
-                //Buses = string.Join(", ", tickets.Route),
-            });
-
             if (tickets == null)
             {
                 MessageBox.Show("Can't load Tickets", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             else
             {
-                tickets = tickets.OrderBy(t => t.Status == "available" ? 0 : 1).ToList();
-
                 Dispatcher.Invoke(() =>
                 {
                     dgTicket.ItemsSource = tickets;
